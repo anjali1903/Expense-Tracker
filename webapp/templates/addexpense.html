@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <title>Add Expense</title>
+    {% load static %}
+    <link href="{% static '/css/style.css' %}" rel="Stylesheet" />
+  </head>
+
+  <body class="container all" style="margin-top: 100px;">
+    <form method="POST">
+      {% csrf_token %}
+      <table class="table table-striped table-dark">
+        {{ form.as_table}}
+      </table>
+      <center>
+        <button
+          type="submit"
+          class="btn btn-primary btn-lg"
+          style="margin-bottom: 10px;"
+        >
+          SAVE
+        </button>
+      </center>
+    </form>
+  </body>
+</html>

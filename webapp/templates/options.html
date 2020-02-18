@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <title>Options</title>
+    {% load static %}
+    <link href="{% static '/css/style.css' %}" rel="Stylesheet" />
+  </head>
+
+  <body class="container all">
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="/addincome">ADD INCOME</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="/checkexpense">SHOW EXPENSES</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="/addexpense">ADD EXPENSE</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="/balance">BALANCE</a>
+    </button>
+  </body>
+</html>
