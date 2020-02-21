@@ -16,12 +16,22 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from webapp import views
+from django.contrib.auth.views import LoginView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^test/', views.test),
     url(r'^checkexpense/', views.checkexpense),
+    url(r'^checkexpenseJan/', views.checkexpenseJan),
+    url(r'^checkexpenseFeb/', views.checkexpenseFeb),
     url(r'^landing/', views.landing),
     url(r'^addexpense/', views.addexpense),
+    url(r'^addexpenseJan/', views.addexpenseJan),
+    url(r'^addexpenseFeb/', views.addexpenseFeb),
+    url(r'^deleteexpense/<int:id>/', views.delete),
     url(r'^options/', views.options),
+    url(r'^login/', LoginView.as_view()),
+    url(r'^customreg/', views.customreg),
+    url(r'^check/', views.check),
+    url(r'^logoutview/', views.logoutview)
 ]

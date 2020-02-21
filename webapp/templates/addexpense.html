@@ -7,27 +7,51 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-
-    <title>Add Expense</title>
+    <title>Options</title>
     {% load static %}
     <link href="{% static '/css/style.css' %}" rel="Stylesheet" />
   </head>
 
-  <body class="container all" style="margin-top: 100px;">
-    <form method="POST">
-      {% csrf_token %}
-      <table class="table table-striped table-dark">
-        {{ form.as_table}}
-      </table>
-      <center>
-        <button
-          type="submit"
-          class="btn btn-primary btn-lg"
-          style="margin-bottom: 10px;"
-        >
-          SAVE
-        </button>
-      </center>
-    </form>
-  </body>
+  <body class="container all">
+    <h1>{{username}}</h1>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="/addexpenseJan/">JANUARY</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="/addexpenseFeb/">FEBRUARY</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="#">MARCH</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="#">APRIL</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="#">MAY</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="#">JUNE</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="#">JULY</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="#">AUGUST</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="#">SEPTEMBER</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="#">OCTOBER</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="#">NOVEMBER</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="#">DECEMBER</a>
+    </button>
+    <button type="button" class="btn btn-outline-light btn-lg btn-block">
+      <a href="/options">OPTIONS</a>
+    </button>
+    
 </html>
