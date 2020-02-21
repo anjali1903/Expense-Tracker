@@ -25,6 +25,66 @@ class ExpenseFeb(models.Model):
     price = models.IntegerField()
 
 
+class ExpenseMar(models.Model):
+    date = models.IntegerField()
+    expense = models.CharField(max_length=30)
+    price = models.IntegerField()
+
+
+class ExpenseApr(models.Model):
+    date = models.IntegerField()
+    expense = models.CharField(max_length=30)
+    price = models.IntegerField()
+
+
+class ExpenseMay(models.Model):
+    date = models.IntegerField()
+    expense = models.CharField(max_length=30)
+    price = models.IntegerField()
+
+
+class ExpenseJun(models.Model):
+    date = models.IntegerField()
+    expense = models.CharField(max_length=30)
+    price = models.IntegerField()
+
+
+class ExpenseJul(models.Model):
+    date = models.IntegerField()
+    expense = models.CharField(max_length=30)
+    price = models.IntegerField()
+
+
+class ExpenseAug(models.Model):
+    date = models.IntegerField()
+    expense = models.CharField(max_length=30)
+    price = models.IntegerField()
+
+
+class ExpenseSep(models.Model):
+    date = models.IntegerField()
+    expense = models.CharField(max_length=30)
+    price = models.IntegerField()
+
+
+class ExpenseOct(models.Model):
+    date = models.IntegerField()
+    expense = models.CharField(max_length=30)
+    price = models.IntegerField()
+
+
+class ExpenseNov(models.Model):
+    date = models.IntegerField()
+    expense = models.CharField(max_length=30)
+    price = models.IntegerField()
+
+
+class ExpenseDec(models.Model):
+    date = models.IntegerField()
+    expense = models.CharField(max_length=30)
+    price = models.IntegerField()
+
+
 class UserData(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
