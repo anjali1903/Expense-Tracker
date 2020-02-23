@@ -3,7 +3,7 @@ from webapp.models import Expense, ExpenseJan, ExpenseFeb, ExpenseMar, ExpenseAp
 from webapp.form import ExpenseForm, UserForm, RegForm, TestForm, ExpenseFormJan, ExpenseFormFeb, ExpenseFormMar, ExpenseFormApr, ExpenseFormMay, ExpenseFormJun, ExpenseFormJul, ExpenseFormAug, ExpenseFormSep, ExpenseFormOct, ExpenseFormNov, ExpenseFormDec
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-
+from django.db.models import Sum
 
 # Create your views here.
 
@@ -24,73 +24,74 @@ def checkexpense(request):
 
 @login_required
 def checkexpenseJan(request):
-    expense = ExpenseJan.objects.all()
+    expense = ExpenseJan.objects.all().order_by("date")
+    t = ExpenseJan.objects.aggregate(Sum("price"))
     return render(request, "checkexpense/checkexpenseJan.html", {'expense': expense})
 
 
 @login_required
 def checkexpenseFeb(request):
-    expense = ExpenseFeb.objects.all()
+    expense = ExpenseFeb.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseFeb.html", {'expense': expense})
 
 
 @login_required
 def checkexpenseMar(request):
-    expense = ExpenseMar.objects.all()
+    expense = ExpenseMar.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseMar.html", {'expense': expense})
 
 
 @login_required
 def checkexpenseApr(request):
-    expense = ExpenseApr.objects.all()
+    expense = ExpenseApr.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseApr.html", {'expense': expense})
 
 
 @login_required
 def checkexpenseMay(request):
-    expense = ExpenseMay.objects.all()
+    expense = ExpenseMay.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseMay.html", {'expense': expense})
 
 
 @login_required
 def checkexpenseJun(request):
-    expense = ExpenseJun.objects.all()
+    expense = ExpenseJun.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseJun.html", {'expense': expense})
 
 
 @login_required
 def checkexpenseJul(request):
-    expense = ExpenseJul.objects.all()
+    expense = ExpenseJul.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseJul.html", {'expense': expense})
 
 
 @login_required
 def checkexpenseAug(request):
-    expense = ExpenseAug.objects.all()
+    expense = ExpenseAug.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseAug.html", {'expense': expense})
 
 
 @login_required
 def checkexpenseSep(request):
-    expense = ExpenseSep.objects.all()
+    expense = ExpenseSep.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseSep.html", {'expense': expense})
 
 
 @login_required
 def checkexpenseOct(request):
-    expense = ExpenseOct.objects.all()
+    expense = ExpenseOct.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseOct.html", {'expense': expense})
 
 
 @login_required
 def checkexpenseNov(request):
-    expense = ExpenseNov.objects.all()
+    expense = ExpenseNov.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseNov.html", {'expense': expense})
 
 
 @login_required
 def checkexpenseDec(request):
-    expense = ExpenseDec.objects.all()
+    expense = ExpenseDec.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseDec.html", {'expense': expense})
 
 
@@ -105,7 +106,7 @@ def addexpenseJan(request):
         form = ExpenseFormJan(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("checkexpense/checkexpenseJan")
+            return redirect("/checkexpenseJan")
     else:
         form = ExpenseFormJan()
         return render(request, "addexpense/addexpenseJan.html", {'form': form})
@@ -117,7 +118,7 @@ def addexpenseFeb(request):
         form = ExpenseFormFeb(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("checkexpense/checkexpenseFeb")
+            return redirect("/checkexpenseFeb")
     else:
         form = ExpenseFormFeb()
         return render(request, "addexpense/addexpenseFeb.html", {'form': form})
@@ -129,7 +130,7 @@ def addexpenseMar(request):
         form = ExpenseFormMar(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("checkexpense/checkexpenseMar")
+            return redirect("/checkexpenseMar")
     else:
         form = ExpenseFormMar()
         return render(request, "addexpense/addexpenseMar.html", {'form': form})
@@ -141,7 +142,7 @@ def addexpenseApr(request):
         form = ExpenseFormApr(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("checkexpense/checkexpenseApr")
+            return redirect("/checkexpenseApr")
     else:
         form = ExpenseFormApr()
         return render(request, "addexpense/addexpenseApr.html", {'form': form})
@@ -153,7 +154,7 @@ def addexpenseMay(request):
         form = ExpenseFormMay(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("checkexpense/checkexpenseMay")
+            return redirect("/checkexpenseMay")
     else:
         form = ExpenseFormMay()
         return render(request, "addexpense/addexpenseMay.html", {'form': form})
@@ -165,7 +166,7 @@ def addexpenseJun(request):
         form = ExpenseFormJun(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("checkexpense/checkexpenseJun")
+            return redirect("/checkexpenseJun")
     else:
         form = ExpenseFormJun()
         return render(request, "addexpense/addexpenseJun.html", {'form': form})
@@ -177,7 +178,7 @@ def addexpenseJul(request):
         form = ExpenseFormJul(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("checkexpense/checkexpenseJul")
+            return redirect("/checkexpenseJul")
     else:
         form = ExpenseFormJul()
         return render(request, "addexpense/addexpenseJul.html", {'form': form})
@@ -189,7 +190,7 @@ def addexpenseAug(request):
         form = ExpenseFormAug(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("checkexpense/checkexpenseAug")
+            return redirect("/checkexpenseAug")
     else:
         form = ExpenseFormAug()
         return render(request, "addexpense/addexpenseAug.html", {'form': form})
@@ -201,7 +202,7 @@ def addexpenseSep(request):
         form = ExpenseFormSep(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("checkexpense/checkexpenseSep")
+            return redirect("/checkexpenseSep")
     else:
         form = ExpenseFormSep()
         return render(request, "addexpense/addexpenseSep.html", {'form': form})
@@ -213,7 +214,7 @@ def addexpenseOct(request):
         form = ExpenseFormOct(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("checkexpense/checkexpenseOct")
+            return redirect("/checkexpenseOct")
     else:
         form = ExpenseFormOct()
         return render(request, "addexpense/addexpenseOct.html", {'form': form})
@@ -225,7 +226,7 @@ def addexpenseNov(request):
         form = ExpenseFormNov(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("checkexpense/checkexpenseNov")
+            return redirect("/checkexpenseNov")
     else:
         form = ExpenseFormNov()
         return render(request, "addexpense/addexpenseNov.html", {'form': form})
@@ -237,7 +238,7 @@ def addexpenseDec(request):
         form = ExpenseFormDec(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("checkexpense/checkexpenseDec")
+            return redirect("/checkexpenseDec")
     else:
         form = ExpenseFormDec()
         return render(request, "addexpense/addexpenseDec.html", {'form': form})
