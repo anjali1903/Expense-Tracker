@@ -16,91 +16,76 @@ def landing(request):
     return render(request, "landing.html")
 
 
-@login_required
 def checkexpense(request):
     expense = Expense.objects.all()
     return render(request, "checkexpense/checkexpense.html", {'expense': expense})
 
 
-@login_required
 def checkexpenseJan(request):
     expense = ExpenseJan.objects.all().order_by("date")
     t = ExpenseJan.objects.aggregate(Sum("price"))
-    return render(request, "checkexpense/checkexpenseJan.html", {'expense': expense})
+    return render(request, "checkexpense/checkexpenseJan.html", {'expense': expense, 't': t['price__sum']})
 
 
-@login_required
 def checkexpenseFeb(request):
     expense = ExpenseFeb.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseFeb.html", {'expense': expense})
 
 
-@login_required
 def checkexpenseMar(request):
     expense = ExpenseMar.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseMar.html", {'expense': expense})
 
 
-@login_required
 def checkexpenseApr(request):
     expense = ExpenseApr.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseApr.html", {'expense': expense})
 
 
-@login_required
 def checkexpenseMay(request):
     expense = ExpenseMay.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseMay.html", {'expense': expense})
 
 
-@login_required
 def checkexpenseJun(request):
     expense = ExpenseJun.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseJun.html", {'expense': expense})
 
 
-@login_required
 def checkexpenseJul(request):
     expense = ExpenseJul.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseJul.html", {'expense': expense})
 
 
-@login_required
 def checkexpenseAug(request):
     expense = ExpenseAug.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseAug.html", {'expense': expense})
 
 
-@login_required
 def checkexpenseSep(request):
     expense = ExpenseSep.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseSep.html", {'expense': expense})
 
 
-@login_required
 def checkexpenseOct(request):
     expense = ExpenseOct.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseOct.html", {'expense': expense})
 
 
-@login_required
 def checkexpenseNov(request):
     expense = ExpenseNov.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseNov.html", {'expense': expense})
 
 
-@login_required
 def checkexpenseDec(request):
     expense = ExpenseDec.objects.all().order_by("date")
     return render(request, "checkexpense/checkexpenseDec.html", {'expense': expense})
 
 
-@login_required
 def addexpense(request):
     return render(request, "addexpense/addexpense.html")
 
 
-@login_required
 def addexpenseJan(request):
     if request.method == "POST":
         form = ExpenseFormJan(request.POST)
@@ -112,7 +97,6 @@ def addexpenseJan(request):
         return render(request, "addexpense/addexpenseJan.html", {'form': form})
 
 
-@login_required
 def addexpenseFeb(request):
     if request.method == "POST":
         form = ExpenseFormFeb(request.POST)
@@ -124,7 +108,6 @@ def addexpenseFeb(request):
         return render(request, "addexpense/addexpenseFeb.html", {'form': form})
 
 
-@login_required
 def addexpenseMar(request):
     if request.method == "POST":
         form = ExpenseFormMar(request.POST)
@@ -136,7 +119,6 @@ def addexpenseMar(request):
         return render(request, "addexpense/addexpenseMar.html", {'form': form})
 
 
-@login_required
 def addexpenseApr(request):
     if request.method == "POST":
         form = ExpenseFormApr(request.POST)
@@ -148,7 +130,6 @@ def addexpenseApr(request):
         return render(request, "addexpense/addexpenseApr.html", {'form': form})
 
 
-@login_required
 def addexpenseMay(request):
     if request.method == "POST":
         form = ExpenseFormMay(request.POST)
@@ -160,7 +141,6 @@ def addexpenseMay(request):
         return render(request, "addexpense/addexpenseMay.html", {'form': form})
 
 
-@login_required
 def addexpenseJun(request):
     if request.method == "POST":
         form = ExpenseFormJun(request.POST)
@@ -172,7 +152,6 @@ def addexpenseJun(request):
         return render(request, "addexpense/addexpenseJun.html", {'form': form})
 
 
-@login_required
 def addexpenseJul(request):
     if request.method == "POST":
         form = ExpenseFormJul(request.POST)
@@ -184,7 +163,6 @@ def addexpenseJul(request):
         return render(request, "addexpense/addexpenseJul.html", {'form': form})
 
 
-@login_required
 def addexpenseAug(request):
     if request.method == "POST":
         form = ExpenseFormAug(request.POST)
@@ -196,7 +174,6 @@ def addexpenseAug(request):
         return render(request, "addexpense/addexpenseAug.html", {'form': form})
 
 
-@login_required
 def addexpenseSep(request):
     if request.method == "POST":
         form = ExpenseFormSep(request.POST)
@@ -208,7 +185,6 @@ def addexpenseSep(request):
         return render(request, "addexpense/addexpenseSep.html", {'form': form})
 
 
-@login_required
 def addexpenseOct(request):
     if request.method == "POST":
         form = ExpenseFormOct(request.POST)
@@ -220,7 +196,6 @@ def addexpenseOct(request):
         return render(request, "addexpense/addexpenseOct.html", {'form': form})
 
 
-@login_required
 def addexpenseNov(request):
     if request.method == "POST":
         form = ExpenseFormNov(request.POST)
@@ -232,7 +207,6 @@ def addexpenseNov(request):
         return render(request, "addexpense/addexpenseNov.html", {'form': form})
 
 
-@login_required
 def addexpenseDec(request):
     if request.method == "POST":
         form = ExpenseFormDec(request.POST)
@@ -244,7 +218,6 @@ def addexpenseDec(request):
         return render(request, "addexpense/addexpenseDec.html", {'form': form})
 
 
-@login_required
 def delete(request, id):
     expense = Expense.objects.get(id=id)
     expense.delete()
@@ -282,7 +255,6 @@ def check(request):
         return redirect("/login")
 
 
-@login_required
 def options(request):
     username = request.user.username
     return render(request, "options.html", {'username': username})
